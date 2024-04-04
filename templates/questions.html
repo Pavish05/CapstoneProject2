@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    <h1>Trivia Questions!</h1>
+    <form method="POST" action="/submit_answers">
+        {% for question in questions %}
+        <h6>{{ question.question }}</h6>
+        {% for answer in question.possible_answers %}
+        <label>
+            <input type="radio" name="{{ question.id }}" value="{{ answer }}">{{ answer }}
+        </label>
+        {% endfor %}
+        </select>
+        <hr>
+        {% endfor %}
+        <button type="submit">Submit Answers</button>
+    </form>
+</body>
+{% endblock %}

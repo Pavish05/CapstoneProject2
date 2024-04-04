@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/signedUp.css">
+<title>Signup Success</title>
+</head>
+
+<body>
+    <h1>User Registered Successfully!</h1>
+    <h2>Welcome, {{ username }}!</h2>
+    <a href="{{ url_for('homepage') }}" class="btn btn-secondary">Go to Homepage</a>
+</body>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/logout.css">
+
+<body>
+    <h1>Logged Out!</h1>
+    <h3>You have been successfully logged out.</h3>
+    <a href="{{ url_for('homepage') }}" class="btn btn-secondary">Go to Homepage</a>
+</body>
+
+</html>
+
+{% endblock %}

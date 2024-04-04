@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/episodes.css">
+
+<body>
+    <h1>List of Episodes</h1>
+
+
+    <form action="/episodes" method="GET">
+        <label for="season"><strong>Select Season:</strong></label>
+        <select id="season" name="season" class="season-filter">
+            <option value="">All Seasons</option>
+            {% set unique_seasons = [] %}
+            {% for episode in episodes %}
+            {% if episode.Season not in unique_seasons %}
+            {% set _ = unique_seasons.append(episode.Season) %}
+            <option value="{{ episode.Season }}">{{ episode.Season }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-md btn-secondary">Filter</button>
+    </form>
+
+
+    <ul>
+        {% for episode in episodes %}
+        <p><b>Season: </b>{{ episode.Season }}</p>
+        <p><b>Episode Number:</b> {{ episode.NumInSeason }}</p>
+        <p><b>Title:</b> {{ episode.Title }}</p>
+        <p><b>Directed By:</b> {{ episode.DirectedBy }}</p>
+        <p><b>Original Air Date:</b> {{ episode.OriginalAirDate }}</p>
+        <hr>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
+
+{% endblock %}
